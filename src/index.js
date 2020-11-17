@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { View, Text, Image, StyleSheet, Animated } from 'react-native'
+import { SvgCssUri } from 'react-native-svg';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,7 +13,7 @@ const styles = StyleSheet.create({
   },
   circleImage: {
     borderWidth: 2,
-    borderColor: 'white'
+    borderColor: 'transparent'
   },
   overflow: {
     backgroundColor: '#b6c0ca',
@@ -39,17 +40,18 @@ class Circle extends PureComponent {
       <Animated.View
         style={{ marginRight: -marginRight }}
       >
-        <Image
-          style={[
-            styles.circleImage,
-            {
-              width: innerCircleSize,
-              height: innerCircleSize,
-              borderRadius: circleSize
-            },
-            imageStyle
-          ]}
-          source={{ uri: face.imageUrl }}
+        <SvgCssUri
+                                style={[
+                                  styles.circleImage,
+                                  {
+                                    width: innerCircleSize,
+                                    height: innerCircleSize,
+                                    borderRadius: circleSize
+                                  },
+                                  imageStyle
+                                ]}
+                                uri={face.imageUrl}
+                                
         />
       </Animated.View>
     )
